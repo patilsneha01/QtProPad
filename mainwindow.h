@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,5 +20,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QString m_currentFile;
+
+private slots:
+    void newFile();
+    void openFile();
+    void saveFile();
+
 };
 #endif // MAINWINDOW_H
