@@ -10,6 +10,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    m_statusLabel = new QLabel("Ready", this);
+    m_statusLabel->setAlignment(Qt::AlignCenter);
+    m_statusLabel->setStyleSheet(
+        "color: white;"
+        "font-size: 13px;"
+        "font-weight: bold;"
+        );
+    statusBar()->addPermanentWidget(m_statusLabel, 1);
+
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::newFile);
 
     connect(ui->actionOpen, &QAction::triggered, this, &MainWindow::openFile);
@@ -28,7 +37,7 @@ void MainWindow::newFile()
 
     m_currentFile.clear();
 
-    statusBar()->showMessage("New file created");
+    m_statusLabel->setText("New file created");
 }
 
 void MainWindow::openFile()
@@ -63,7 +72,7 @@ void MainWindow::openFile()
 
     m_currentFile = fileName;
 
-    statusBar()->showMessage("File opened successfully");
+    m_statusLabel->setText("File opened successfully");
 }
 
 void MainWindow::saveFile()
@@ -103,5 +112,5 @@ void MainWindow::saveFile()
 
     m_currentFile = fileName;
 
-    statusBar()->showMessage("File saved successfully");
+    m_statusLabel->setText("File saved successfully");
 }

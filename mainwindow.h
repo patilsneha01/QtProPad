@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,6 +22,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QString m_currentFile;
+    QLabel *m_statusLabel;
 
 private slots:
     void newFile();
