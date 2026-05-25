@@ -23,11 +23,13 @@ private:
     Ui::MainWindow *ui;
     QString m_currentFile;
     QLabel *m_statusLabel;
+    QLabel *m_wordCountLabel;
 
 private slots:
     void newFile();
     void openFile();
     void saveFile();
+    void updateWordCount();
 
 };
 #endif // MAINWINDOW_H
